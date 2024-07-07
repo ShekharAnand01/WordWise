@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:orientation="vertical"
     >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="UselessParent">
+        android:layout_marginTop="8dp"
+        >
 
         <EditText
             android:id="@+id/search_text"
@@ -23,7 +22,9 @@
             android:layout_toStartOf="@+id/search_btn"
             android:background="@drawable/rounded_corner"
             android:hint="Search here"
-            android:padding="12dp" />
+            android:padding="12dp"
+            android:layout_marginStart="16dp"
+            />
 
         <Button
             android:id="@+id/search_btn"
@@ -31,7 +32,46 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="8dp"
-            android:text="Search" />
+            android:text="Search"
+            android:layout_marginEnd="16dp"
+            />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="100dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/app_color"
+            android:visibility="gone"
+            />
     </RelativeLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/word_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Word"
+        android:layout_marginTop="8dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#2196F3"
+        android:layout_marginStart="16dp"
+        />
+
+    <TextView
+        android:id="@+id/phonetic_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/w o r d/"
+        android:textColor="@color/grey"
+        android:layout_marginStart="16dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/meaning_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"/>
+
+</LinearLayout>
