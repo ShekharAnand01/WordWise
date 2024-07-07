@@ -3,6 +3,7 @@ package com.example.dictionary
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        binding.searchBtn.setOnClickListener{
+        binding.searchBtn.setOnClickListener {
             val word = binding.searchText.text.toString()
             getResult(word)
         }
@@ -34,9 +35,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getResult(word: String) {
+        getProgressBar(true)
         GlobalScope.launch {
             val response = RetrofitInstance.dictionaryApi.getResult(word)
-            Log.i("Response Api",response.body().toString())
+            runOnUiThread {
+                getProgressBar(false)
+                response.body()?.first()?.let {
+                    setUi(it)
+                }
+            }
+        }
+
+    }
+
+    private fun setUi(result: ResultDataClass) {
+        binding.wordTextview.text = result.word
+        binding.phoneticTextview.text = result.phonetic
+
+    }
+
+    private fun getProgressBar(progress: Boolean) {
+        if (progress) {
+            binding.progressBar.visibility = View.VISIBLE
+            binding.searchBtn.visibility = View.INVISIBLE
+        } else {
+            binding.progressBar.visibility = View.INVISIBLE
+            binding.searchBtn.visibility = View.VISIBLE
         }
 
     }

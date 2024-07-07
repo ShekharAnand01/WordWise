@@ -6,5 +6,5 @@ import retrofit2.http.Path
 
 interface DictionaryApi {
     @GET("{word}")
-    suspend fun getResult(@Path("word") word : String) :  Response<List<ResultDataClass>>
+    suspend fun getResult(@Path("word") word: String): Response<List<ResultDataClass>>
 }
