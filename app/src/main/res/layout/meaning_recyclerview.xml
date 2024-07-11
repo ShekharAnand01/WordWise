@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/rounded_corner"
+    >
+
+    <TextView
+        android:id="@+id/part_of_speech_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Part of Speech"
+        android:textColor="@color/app_color"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Definitions : "
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/definition_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Definition" />
+
+    <TextView
+        android:id="@+id/synonyms_title_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Synonyms : "
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/synonyms_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Synonyms" />
+
+    <TextView
+        android:id="@+id/antonyms_title_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Antonyms : "
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/antonyms_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Antonyms" />
+</LinearLayout>
